@@ -2,6 +2,7 @@ package com.greenstitch.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -28,7 +29,7 @@ public class controller {
 	}
 	
 	@GetMapping("/signup")
-	public String signup() {
+	public String signu() {
 		return "signup";
 	}
 	
@@ -54,5 +55,16 @@ public class controller {
 			return "signup";
 		}
 	}
+	@PostMapping("/signin")
+	public String validate(@RequestParam("email") String email, @RequestParam("password") String password, Model model) {
+	    boolean flag = this.service.validate(email, password);
+	    if (flag) {
+	        return "successful";
+	    } else {
+	       
+	        return "signin";
+	    }
+	}
+
 }
 	

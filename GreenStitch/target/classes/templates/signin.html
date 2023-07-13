@@ -10,40 +10,38 @@
       margin: 0;
       padding: 0;
     }
-
+    
     .container {
-      max-width: 400px;
-      margin: 100px auto;
+      max-width: 600px;
+      margin: 0 auto;
       padding: 20px;
-      background-color: #ffffff;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      border-radius: 4px;
-    }
-
-    h1 {
       text-align: center;
+    }
+    
+    h1 {
       color: #333333;
       margin-bottom: 30px;
     }
-
+    
     .form-group {
       margin-bottom: 20px;
+      text-align: left;
     }
-
-    .form-label {
+    
+    .form-group label {
       display: block;
-      color: #333333;
       margin-bottom: 5px;
+      color: #333333;
     }
-
-    .form-control {
+    
+    .form-group input {
       width: 100%;
       padding: 10px;
       border: 1px solid #cccccc;
       border-radius: 4px;
       font-size: 16px;
     }
-
+    
     .btn {
       display: inline-block;
       padding: 10px 20px;
@@ -52,62 +50,28 @@
       text-decoration: none;
       border-radius: 4px;
       margin-top: 20px;
-      cursor: pointer;
     }
-
+    
     .btn:hover {
       background-color: #555555;
     }
-
-    .error-message {
-      color: #ff0000;
-      margin-top: 10px;
-      text-align: center;
-    }
   </style>
+
 </head>
 <body>
   <div class="container">
     <h1>Sign In</h1>
-    <form id="signin-form">
+    <form id="signin-form" action="/signin" method="post" >
       <div class="form-group">
-        <label for="email" class="form-label">Email address</label>
-        <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
       </div>
       <div class="form-group">
-        <label for="password" class="form-label">Password</label>
-        <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
       </div>
-      <button type="submit" class="btn">Sign In</button>
-      <p class="error-message" id="error-message"></p>
+      <button type="submit" class="btn btn-primary btn-sm">Sign In</button>
     </form>
   </div>
-
-  <script>
-    const form = document.getElementById('signin-form');
-    const errorMessage = document.getElementById('error-message');
-
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-
-      // Get the entered email and password
-      const email = form.email.value;
-      const password = form.password.value;
-
-      // Check if the entered values match the stored values
-      // Replace this logic with your own backend implementation
-      const storedEmail = "example@example.com";
-      const storedPassword = "password";
-
-      if (email === storedEmail && password === storedPassword) {
-        // Redirect to the success page
-        window.location.href = "success.html";
-      } else {
-        // Clear the form fields and display an error message
-        form.reset();
-        errorMessage.textContent = "Invalid email or password. Please try again.";
-      }
-    });
-  </script>
 </body>
 </html>

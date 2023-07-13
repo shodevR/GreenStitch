@@ -59,10 +59,14 @@
 <body>
   <div class="container">
     <h1>Sign Up</h1>
-    <form id="signup-form">
+    <form id="signup-form" action="addUser" method="post">
       <div class="form-group">
         <label for="id">ID:</label>
-        <input type="text" id="id" name="id" placeholder="Enter your ID" required>
+        <input type="number" id="id" name="id" placeholder="Enter your ID" required>
+      </div>
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your Name" required>
       </div>
       <div class="form-group">
         <label for="email">Email:</label>
@@ -72,26 +76,11 @@
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" placeholder="Enter your password" required>
       </div>
-      <button type="submit" class="btn">Sign Up</button>
+      
+      <button type="submit" class="btn btn-primary btn-sm">Sign Up</button>
     </form>
   </div>
 
-  <script>
-    const form = document.getElementById('signup-form');
-
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-
-      // Perform form validation and submission here
-      // You can access the form values using form.id.value, form.email.value, form.password.value
-      // For simplicity, let's just log the values to the console for now
-      console.log('ID:', form.id.value);
-      console.log('Email:', form.email.value);
-      console.log('Password:', form.password.value);
-
-      // After successful submission, you can redirect to another page or show a success message
-      // For example, you can use: window.location.href = 'success.html';
-    });
-  </script>
+  
 </body>
 </html>
